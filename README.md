@@ -4,11 +4,12 @@ This project demonstrates various ReactFlow implementations including a Mermaid 
 
 ## Project Overview
 
-This React application showcases three different ReactFlow implementations:
+This React application showcases four different ReactFlow implementations:
 
 1. **Overview Flow** - Basic ReactFlow features and interactions
 2. **Sequence Diagram** - Custom sequence diagram visualization
 3. **Mermaid Parser** - Converts Mermaid sequence diagram syntax to ReactFlow
+4. **Dependency Graph** - Code dependency visualization with polyglot architecture
 
 ## Dependencies
 
@@ -70,7 +71,35 @@ A custom implementation of UML sequence diagrams using ReactFlow:
 - Messages positioned between lifelines with proper spacing
 - Automatic spacing (60px between messages)
 
-### 3. Mermaid Parser (`MermaidSequenceDiagram.tsx`)
+### 3. Dependency Graph (`DependencyGraph.tsx`)
+
+A code dependency visualization showing a polyglot architecture with different technologies:
+
+**Key Features:**
+- **Polyglot Architecture** - Node.js, Python, and Java components
+- **Technology Color Coding** - Each technology has distinct visual styling
+- **Relationship Labels** - Clear labels showing "uses", "calls", "protects" relationships
+- **Hierarchical Layout** - Controllers → Services → Repositories → Middleware
+- **Interactive Controls** - Full ReactFlow navigation and interaction
+
+**Technology Styling:**
+- **Node.js** - Green theme (`#68d391` background, `#38a169` border)
+- **Python** - Pink theme (`#fbb6ce` background, `#e53e3e` border)  
+- **Java** - Orange theme (`#fbd38d` background, `#dd6b20` border)
+
+**Architecture Components:**
+- **Controllers** - UserController, ProductController, OrderController, PaymentController
+- **Services** - UserService, ProductService, OrderService, PaymentService
+- **Repositories** - UserRepository, ProductRepository, OrderRepository, PaymentRepository
+- **Middleware** - AuthMiddleware, ValidationMiddleware
+
+**Relationship Types:**
+- **Uses** - Controller → Service relationships
+- **Calls** - Service → Repository relationships
+- **Protects** - Middleware → Component relationships
+- **Cross-service** - Inter-service dependencies
+
+### 4. Mermaid Parser (`MermaidSequenceDiagram.tsx`)
 
 A sophisticated Mermaid sequence diagram parser that converts Mermaid syntax to ReactFlow visualizations:
 
@@ -212,6 +241,7 @@ Navigate to `http://localhost:3000` and use the top navigation to switch between
 - **Overview Flow** - Basic ReactFlow demo
 - **Sequence Diagram** - Static sequence diagram
 - **Mermaid Parser** - Interactive Mermaid parser
+- **Dependency Graph** - Code dependency visualization
 
 ### Mermaid Parser Usage
 

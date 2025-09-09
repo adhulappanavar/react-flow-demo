@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import OverviewFlow from './OverviewFlow';
 import SequenceDiagram from './SequenceDiagram';
 import MermaidSequenceDiagram from './MermaidSequenceDiagram';
+import DependencyGraph from './DependencyGraph';
 import '@xyflow/react/dist/style.css';
 import './App.css';
 
 function App() {
-  const [currentView, setCurrentView] = useState<'overview' | 'sequence' | 'mermaid'>('overview');
+  const [currentView, setCurrentView] = useState<'overview' | 'sequence' | 'mermaid' | 'dependency'>('overview');
 
   return (
     <div className="App">
@@ -57,11 +58,25 @@ function App() {
         >
           Mermaid Parser
         </button>
+        <button 
+          onClick={() => setCurrentView('dependency')}
+          style={{
+            padding: '8px 16px',
+            background: currentView === 'dependency' ? '#007bff' : '#f8f9fa',
+            color: currentView === 'dependency' ? 'white' : 'black',
+            border: '1px solid #007bff',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Dependency Graph
+        </button>
       </div>
       
       {currentView === 'overview' ? <OverviewFlow /> : 
        currentView === 'sequence' ? <SequenceDiagram /> : 
-       <MermaidSequenceDiagram />}
+       currentView === 'mermaid' ? <MermaidSequenceDiagram /> :
+       <DependencyGraph />}
     </div>
   );
 }
